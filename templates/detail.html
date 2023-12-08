@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block title %}Blogly{% endblock %}
+
+{% block content%}
+<div class=".container-lg">
+  <div class="row">
+    <div class="col-md-2">
+      <img
+        class="img-fluid"
+        src="{{user.image_url}}"
+        alt="https://static.vecteezy.com/system/resources/thumbnails/009/292/244/small/default-avatar-icon-of-social-media-user-vector.jpg"
+        width="200"
+        height="200"
+      />
+    </div>
+    <div class="col-md-10">
+      <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+      <div class="buttons">
+        <a href="/users/{{ user.id }}/edit"
+          ><button class="btn btn-primary">Edit</button></a
+        >
+        <a href="/users/{{ user.id }}/delete"
+          ><button class="btn btn-danger">Delete</button></a
+        >
+        <a href="/users" class="btn btn-secondary">Back</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
