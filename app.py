@@ -1,4 +1,3 @@
-"""Demo app using SQLAlchemy."""
 from flask import Flask, request, redirect, render_template, flash, session
 from models import db, connect_db, User, Post
 from datetime import datetime

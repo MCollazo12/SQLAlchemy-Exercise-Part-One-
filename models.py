@@ -1,4 +1,3 @@
-"""Demo file showing off a model for SQLAlchemy."""
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
