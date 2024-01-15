@@ -1,0 +1,40 @@
+{% extends 'base.html' %} 
+{% block title %}Blogly{% endblock %} 
+
+{% block content%}
+<div class=".container-lg">
+  <div class="row">
+    {% if user.image_url %}
+    <div class="col-sm-2 col-6">
+      <img src="{{user.image_url}}" alt="{{default_img}}" class="img-fluid" />
+    </div>
+    {% endif %}
+
+  <div class="col-sm-10 col-12">
+    <h1>{{ user.first_name }} {{ user.last_name }}</h1>
+    <div class="buttons">
+      <a href="/users/{{ user.id }}/edit">
+        <button class="btn btn-primary">Edit</button>
+      </a>
+      <a href="/users/{{ user.id }}/delete">
+        <button class="btn btn-danger">Delete</button>
+      </a>
+      <a href="/users" class="btn btn-secondary">Back</a>
+    </div>
+
+    <h2 class="mt-4">Posts</h2>
+    <div class="col-md-4">
+      <ul>
+        {% for post in user.posts %}
+          <li>
+            <a href="/posts/{{post.id}}">{{post.title}}</a>
+          </li>
+        {% endfor %}
+      </ul>
+      <p>
+        <a href="/users/{{ user.id }}/posts/new" class="btn btn-primary">Add Post</a>
+      </p>
+    </div>
+  </div>
+</div>
+{% endblock %}
